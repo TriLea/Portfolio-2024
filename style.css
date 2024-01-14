@@ -79,3 +79,25 @@ footer {
 input:focus {
     outline: none;
 }
+
+.resume-container {
+    text-align: center;
+    padding: 10px;
+}
+
+.resume-container iframe {
+    border: none;
+    max-width: 100%;
+}
+
+.download-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #00ff00; /* Green, common in terminals */
+    color: black;
+    text-decoration: none;
+    font-family: 'Courier New', monospace;
+    border: none;
+    cursor: pointer;
+}

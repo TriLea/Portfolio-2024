@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
             case 'resume':
                 response = 'Resume Section...';
-                // Add more logic or content for resume
+                displayResume();
                 break;
             case 'contact':
                 response = 'Contact Section...';
@@ -65,5 +65,15 @@ function displayAllProjects() {
                 <!-- More projects can be added here -->
             </ul>
         </div>
+    `;
+}
+
+function displayResume() {
+    const resumePath = './TristanLResume.pdf';
+    output.innerHTML = `
+    <div class="resume-container">
+        <iframe src="${resumePath}" width="100%" height="500px"></iframe>
+        <a href="${resumePath}" download="Tristan_Resume.pdf" class="download-button">Download Resume</a>
+    </div>
     `;
 }

@@ -1,12 +1,25 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     background-color: #f6f9fc;
     color: white;
     font-family: 'Courier New', monospace;
+    margin: 0;
+    min-height: 100vh;
 }
 
 #terminal {
     width: 80%;
-    height: 500px;
+    height: auto;
     margin: 20px auto;
     background-color: black;
     box-shadow: 0 0 10px black;
@@ -23,14 +36,46 @@ body {
 
 #cmd-title,
 #cmd-buttons {
-    max-height: 35px;
-    width: auto;
+    width: 200px; /* fixed width */
+    height: auto; /* fixed height */
 }
 
 @media (max-width: 600px) {
-
     #cmd-title,
     #cmd-buttons {
-        max-height: 25px !important;
+        width: 140px; /* smaller width for small screens */
+        height: auto; /* smaller height for small screens */
     }
+}
+
+.content {
+    padding: 10px;
+}
+
+footer {
+    color: black;
+    text-align: center;
+}
+
+#commandInput {
+    width: 100%;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 5px;
+    font-family: 'Courier New', monospace;
+}
+
+#output {
+    color: white;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 10px;
+}
+
+#commandInput:focus {
+    outline: none;
+}
+
+input:focus {
+    outline: none;
 }

@@ -29,8 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 displayResume();
                 break;
             case 'contact':
-                response = 'Contact Section...';
-                // Add more logic or content for contact
+                displayContactForm();
                 break;
             case 'clear':
                 output.innerHTML = '';
@@ -76,4 +75,27 @@ function displayResume() {
         <a href="${resumePath}" download="Tristan_Resume.pdf" class="download-button">Download Resume</a>
     </div>
     `;
+}
+
+function displayContactForm() {
+    output.innerHTML = `
+        <div class="contact-form">
+            <form id="contactForm">
+                <input type="text" name="user_name" placeholder="Your Name" required>
+                <input type="email" name="user_email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    `;
+
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        emailjs.sendForm('service_pzjz486', 'template_f3o6rsv', this)
+            .then(function() {
+                output.innerHTML = '<p>Message sent successfully!</p>';
+            }, function(error) {
+                output.innerHTML = '<p>Failed to send the message, please try again.</p>';
+            });
+    });
 }

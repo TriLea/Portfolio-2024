@@ -146,3 +146,31 @@ input:focus {
     background-color: lightgray; 
     color: white;
 }  
+
+.list-container {
+    text-align: center; /* Center align the content */
+}
+
+.list-container h3 {
+    /* Style for the heading, if you want to change it */
+}
+
+.list-container ul {
+    list-style: none; /* Removes bullet points */
+    padding: 0; /* Removes default padding */
+}
+
+.list-container ul li {
+    margin-bottom: 10px; /* Spacing between items */
+}
+
+.list-container ul li a {
+    color: white; /* White text for links */
+    font-weight: bold; /* Bold text */
+    font-size: 1.2em; /* Larger text size, adjust as needed */
+    text-decoration: none; /* Removes underline */
+}
+
+.list-container ul li a:hover {
+    text-decoration: underline; /* Underline on hover for visual feedback */
+}

@@ -51,25 +51,44 @@ function displayFeaturedProjects() {
         <div class="list-container">
             <h3>Featured Projects</h3>
             <ul>
-                <li>Project 1</li>
-                <li>Project 2</li>
-                <li>Project 3</li>
+                <li><a href="https://github.com/TriLea/E-commerceORMBackend?tab=readme-ov-file" target="_blank">E-commerceORMBackend</a></li>
+                <li><a href="https://github.com/TriLea/PWA_CodeEditor" target="_blank">PWA_CodeEditor</a></li>
+                <li><a href="https://github.com/TriLea/portfolio-2023?tab=readme-ov-file" target="_blank">Portfolio-2023</a></li>
+                <li><a href="https://github.com/TriLea/employeeTracker?tab=readme-ov-file" target="_blank">EmployeeTracker</a></li>
+                <li><a href="https://github.com/TriLea/OnlyWanDogs" target="_blank">OnlyWanDogs</a></li>
             </ul>
         </div>
     `;
 }
 
 function displayAllProjects() {
-    output.innerHTML = `
-        <div class="list-container">
-            <h3>All Projects</h3>
-            <ul>
-                <li>Project A</li>
-                <li>Project B</li>
-                <!-- More projects can be added here -->
-            </ul>
-        </div>
-    `;
+    output.innerHTML = '<p>Loading projects...</p>';
+
+    fetch('https://api.github.com/users/TriLea/repos')
+        .then(response => response.json())
+        .then(repos => {
+            if (repos.length === 0) {
+                output.innerHTML = '<p>No projects found.</p>';
+                return;
+            }
+
+            const repoList = repos.map(repo => `
+                <li>
+                    <a href="${repo.html_url}" target="_blank">${repo.name}</a>
+                </li>
+            `).join('');
+
+            output.innerHTML = `
+                <div class="list-container">
+                    <h3>All Projects</h3>
+                    <ul>${repoList}</ul>
+                </div>
+            `;
+        })
+        .catch(error => {
+            console.error('Error fetching repositories', error);
+            output.innerHTML = '<p>Error loading projects.</p>';
+        });
 }
 
 function displayResume() {
@@ -85,29 +104,3 @@ function displayResume() {
 function displayContactForm() {
     window.location.href = './contact.html'; // Redirect to the contact form page
 }
-
-// function displayContactForm() {
-//     output.innerHTML = `
-//         <div class="contact-form">
-//             <form id="contactForm">
-//                 <input type="text" name="user_name" placeholder="Your Name" required>
-//                 <input type="email" name="user_email" placeholder="Your Email" required>
-//                 <textarea name="message" placeholder="Your Message" required></textarea>
-//                 <button type="submit">Send</button>
-//             </form>
-//         </div>
-//     `;
-
-//     const contactForm = document.getElementById('contactForm');
-//     if (!contactForm) {
-//         console.log("Contact form not found");
-//     } else {
-//         console.log("Contact form found, adding event listener");
-//         contactForm.addEventListener('submit', function(event) {
-//             event.preventDefault();
-//             console.log("Attempting to send email");
-//             // Rest of the email sending code
-//         });
-//     }
-// }
-

@@ -25,6 +25,7 @@ body {
     box-shadow: 0 0 10px black;
     overflow: auto;
     position: relative;
+    min-height: 500px;
 }
 
 .title-bar {
@@ -64,6 +65,7 @@ footer {
     border: none;
     padding: 5px;
     font-family: 'Courier New', monospace;
+    font-size: 16px;
 }
 
 #output {
@@ -148,29 +150,28 @@ input:focus {
 }  
 
 .list-container {
-    text-align: center; /* Center align the content */
+    text-align: center; 
 }
 
 .list-container h3 {
-    /* Style for the heading, if you want to change it */
 }
 
 .list-container ul {
-    list-style: none; /* Removes bullet points */
-    padding: 0; /* Removes default padding */
+    list-style: none; 
+    padding: 0; 
 }
 
 .list-container ul li {
-    margin-bottom: 10px; /* Spacing between items */
+    margin-bottom: 10px;
 }
 
 .list-container ul li a {
-    color: white; /* White text for links */
-    font-weight: bold; /* Bold text */
-    font-size: 1.2em; /* Larger text size, adjust as needed */
-    text-decoration: none; /* Removes underline */
+    color: white;
+    font-weight: bold; 
+    font-size: 1.2em;
+    text-decoration: none; 
 }
 
 .list-container ul li a:hover {
-    text-decoration: underline; /* Underline on hover for visual feedback */
+    text-decoration: underline; 
 }

@@ -94,7 +94,7 @@ input:focus {
     display: inline-block;
     margin-top: 10px;
     padding: 5px 10px;
-    background-color: #00ff00;
+    background-color: lightgrey;
     color: black;
     text-decoration: none;
     font-family: 'Courier New', monospace;
@@ -113,3 +113,36 @@ input:focus {
 .contact-form textarea {
 }
 
+.terminal-style {
+    background-color: #000; 
+    color: lightgray; 
+    font-family: 'Courier New', monospace; 
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.contact-form-container {
+    max-width: 600px;
+    margin: 30px auto; 
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    background-color: #333;
+    border: 1px solid #555;
+    color: white; 
+    padding: 8px;
+    border-radius: 3px;
+}
+
+.contact-form button {
+    background-color: lightgray; 
+    color: white;
+}  

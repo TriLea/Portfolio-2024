@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+    emailjs.init("AfdIczXJ5jtb25KjB");
+
     const commandInput = document.getElementById('commandInput');
     const output = document.getElementById('output');
 
@@ -13,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let response = '';
         switch (command.toLowerCase()) {
             case 'help':
-                response = 'Commands available: portfolio, resume, contact, clear';
+                response = 'Commands available: portfolio, resume, contact, clear, reset';
                 break;
             case 'portfolio':
                 output.innerHTML = '<p>Enter "portfolio-featured" to view Featured Projects.<br>Enter "portfolio-all" to view All Projects.</p>';
@@ -33,6 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
             case 'clear':
                 output.innerHTML = '';
+                break;
+            case 'reset':
+                window.location.href = 'index.html';
                 break;
             default:
                 response = 'Command not recognized.';
@@ -78,24 +83,31 @@ function displayResume() {
 }
 
 function displayContactForm() {
-    output.innerHTML = `
-        <div class="contact-form">
-            <form id="contactForm">
-                <input type="text" name="user_name" placeholder="Your Name" required>
-                <input type="email" name="user_email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" required></textarea>
-                <button type="submit">Send</button>
-            </form>
-        </div>
-    `;
-
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        emailjs.sendForm('service_pzjz486', 'template_f3o6rsv', this)
-            .then(function() {
-                output.innerHTML = '<p>Message sent successfully!</p>';
-            }, function(error) {
-                output.innerHTML = '<p>Failed to send the message, please try again.</p>';
-            });
-    });
+    window.location.href = './contact.html'; // Redirect to the contact form page
 }
+
+// function displayContactForm() {
+//     output.innerHTML = `
+//         <div class="contact-form">
+//             <form id="contactForm">
+//                 <input type="text" name="user_name" placeholder="Your Name" required>
+//                 <input type="email" name="user_email" placeholder="Your Email" required>
+//                 <textarea name="message" placeholder="Your Message" required></textarea>
+//                 <button type="submit">Send</button>
+//             </form>
+//         </div>
+//     `;
+
+//     const contactForm = document.getElementById('contactForm');
+//     if (!contactForm) {
+//         console.log("Contact form not found");
+//     } else {
+//         console.log("Contact form found, adding event listener");
+//         contactForm.addEventListener('submit', function(event) {
+//             event.preventDefault();
+//             console.log("Attempting to send email");
+//             // Rest of the email sending code
+//         });
+//     }
+// }
+

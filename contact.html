@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - tlea.dev</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="terminal">
+        <div class="title-bar">
+            <img src="./cmdName.png" id="cmd-title">
+            <img src="./cmdButtons.png" id="cmd-buttons">
+        </div>
+        <div class="content">
+            <div class="content">
+                <div class="contact-form">
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <input type="text" name="user_name" placeholder="Your Name" required>
+                            <input type="email" name="user_email" placeholder="Your Email" required>
+                            <textarea name="message" placeholder="Your Message" required></textarea>
+                            <button type="submit">Send</button>
+                        </form>
+                    </div>
+                </div>
+                <input type="text" id="commandInput" placeholder="Enter 'reset' to return">
+            </div>
+
+        </div>
+    </div>
+    <footer>
+        <p>tlea.dev</p>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("AfdIczXJ5jtb25KjB");
+
+            document.getElementById('contactForm').addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                var userName = this.user_name.value;
+                var userEmail = this.user_email.value;
+                var userMessage = this.message.value;
+
+                // Combine the email with the message
+                var combinedMessage = "Email: " + userEmail + "\n\nMessage: " + userMessage;
+
+                // Send the combined message with EmailJS
+                emailjs.send('service_pzjz486', 'template_f3o6rsv', {
+                    user_name: userName,
+                    message: combinedMessage
+                }).then(function () {
+                    alert('Email sent successfully!');
+                    window.location.href = 'index.html';
+                }, function (error) {
+                    alert('Failed to send email: ' + JSON.stringify(error));
+                });
+            });
+
+        })();
+    </script>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
